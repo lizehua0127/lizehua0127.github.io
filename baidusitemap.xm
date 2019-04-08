@@ -4,7 +4,7 @@
 
     
   <url>
-    <loc>//litten.me/2018/08/02/diary-2018-0802/</loc>
+    <loc>https://lizehua0127.github.io/2018/08/02/diary-2018-0802/</loc>
     <lastmod>2019-04-07T15:47:16.164Z</lastmod>
     <data>
         <display>
@@ -23,7 +23,7 @@
 
     
   <url>
-    <loc>//litten.me/2017/08/22/diary-2017-0822/</loc>
+    <loc>https://lizehua0127.github.io/2017/08/22/diary-2017-0822/</loc>
     <lastmod>2019-04-02T16:21:58.853Z</lastmod>
     <data>
         <display>

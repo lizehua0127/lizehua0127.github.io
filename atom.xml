@@ -5,9 +5,9 @@
   <subtitle>默默开发的程序员</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="//litten.me/"/>
+  <link href="https://lizehua0127.github.io/"/>
   <updated>2019-04-07T15:47:16.164Z</updated>
-  <id>//litten.me/</id>
+  <id>https://lizehua0127.github.io/</id>
   
   <author>
     <name>lizehua0127</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>EventBus源码解析</title>
-    <link href="//litten.me/2018/08/02/diary-2018-0802/"/>
-    <id>//litten.me/2018/08/02/diary-2018-0802/</id>
+    <link href="https://lizehua0127.github.io/2018/08/02/diary-2018-0802/"/>
+    <id>https://lizehua0127.github.io/2018/08/02/diary-2018-0802/</id>
     <published>2018-08-02T13:36:00.000Z</published>
     <updated>2019-04-07T15:47:16.164Z</updated>
     
@@ -34,16 +34,16 @@
     </summary>
     
     
-      <category term="Android" scheme="//litten.me/tags/Android/"/>
+      <category term="Android" scheme="https://lizehua0127.github.io/tags/Android/"/>
     
-      <category term="源码" scheme="//litten.me/tags/%E6%BA%90%E7%A0%81/"/>
+      <category term="源码" scheme="https://lizehua0127.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>Android的So文件加载路径动态修改方案</title>
-    <link href="//litten.me/2017/08/22/diary-2017-0822/"/>
-    <id>//litten.me/2017/08/22/diary-2017-0822/</id>
+    <link href="https://lizehua0127.github.io/2017/08/22/diary-2017-0822/"/>
+    <id>https://lizehua0127.github.io/2017/08/22/diary-2017-0822/</id>
     <published>2017-08-22T02:36:00.000Z</published>
     <updated>2019-04-02T16:21:58.853Z</updated>
     
@@ -56,7 +56,7 @@
     </summary>
     
     
-      <category term="Android" scheme="//litten.me/tags/Android/"/>
+      <category term="Android" scheme="https://lizehua0127.github.io/tags/Android/"/>
     
   </entry>
   

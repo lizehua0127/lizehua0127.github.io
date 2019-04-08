@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//litten.me">
+  <link rel="dns-prefetch" href="https://lizehua0127.github.io">
   <title>EventBus源码解析 | lizehua0127的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="EventBus是Android很火的一个事件分发框架，能让Android开发中的消息事件得到了解偶。现在我们通过源码解读来探究下这个框架到底是怎么实现和进行工作的。 EventBus项目地址：https://github.com/greenrobot/EventBus EventBus的源码不多，我们主要可以通过它的创建、订阅、发布消息、接触订阅这4个方面下手。">
 <meta name="keywords" content="Android,源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EventBus源码解析">
-<meta property="og:url" content="//litten.me/2018/08/02/diary-2018-0802/index.html">
+<meta property="og:url" content="https://lizehua0127.github.io/2018/08/02/diary-2018-0802/index.html">
 <meta property="og:site_name" content="lizehua0127的博客">
 <meta property="og:description" content="EventBus是Android很火的一个事件分发框架，能让Android开发中的消息事件得到了解偶。现在我们通过源码解读来探究下这个框架到底是怎么实现和进行工作的。 EventBus项目地址：https://github.com/greenrobot/EventBus EventBus的源码不多，我们主要可以通过它的创建、订阅、发布消息、接触订阅这4个方面下手。">
 <meta property="og:locale" content="default">
@@ -286,7 +286,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3ay3KDMAwF0Pz/T6fbboArCTrFPl51CAGfdEajhz+feH1/raMr59eP7jl6wueJhYGB8VrG93SdvzjZ7vlbju7M94aBgbEPI9lEdet5VDwP69FbMDAwMMb35AkfBgYGxl2MPLHrpaEYGBgY9z76orwM0r68eL6hFsfAwHghY5KuPf33I/MNDAyMVzG+xZU3ziahvLwrDAyMpRl5gMuHmuelZrNATVp4GBgYizKSkWH1nupgMrnz4ugYBgbGNoweKfl00qqLwBgYGEsz8mSuGgST0rT3liiJxMDA2IwxCZ15mpgDohEmBgbGQoxJU77XGuuNKi++hYGBsTQjIU2Kz6hZVgz0F9cxMDCWZvSK2N4goTxlfbrdhoGB8Y8ZeVOsGjqrzbI8BDeLWAwMjNcyei22fIv5qKD6Y93QKcTAwHgVo8eb/wQ95M3/JQwMjFcxkpZWHmTzNlw+hBgds8DAwFiIUQ1w1TQxKU0nIwcMDIy1GdUG/bwZ1zuuUS5rMTAwlmDkwWs+PKgmoIVDaRgYGNswqsnZ5KBG8t3CczAwMLZhVK/8zUB01GjDwMB4OWPSoK+2/vNkMR9hYmBg7MDIVz5c7IXyvKAtnxnBwMBYgpEE2d4osRc6m8fCMDAwNmDkzfrJqCBvwJWPbmBgYGCMs87zANobFXzyF2NgYGzJSIJs8oRqkL0YYWJgYCzNmBz5uiv5S0piDAyMPRm9Iw69BlzeVpuU1hgYGAsxfgAfNpNhqGTrCAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aS27DMAwFwNz/0um2QOv4kVQWlsYrI7AhjReM+Hm94uv96/r7S3L1Vll8YWBgPJaRLJ9s7vPvV/dXa+V7w8DAOIdxFcHW3uehPN8bBgYGRvU+CcpX634mYWBgYOSMXsKZbw4DAwNjksQm+DxBzZ9fnItjYGA8kDEJl9++/0p/AwMD41GMXhtyntwmn6mwKwwMjK0ZeYDL25bVxmQv4GJgYJzG6IW5vAFQbQNUE2YMDIwTGHlRrJdkJqG2dyT9538DAwNjO0a1Wdh7vnrUyxsAGBgYpzF6h7bqOMXnTSflucuqIQYGxgGM3taroxKTIH5TYsPAwNiUkR/Lqo2BteE1KuFhYGAcw1g7sDUv/S+rGmJgYDyWkRfiJyex+aDYzVsYGBgHMCbF/WrKWj1oRoEeAwPjAMZkqKt6EJx8uOhoiIGBsR2j1zJc287M/wZuYiwGBsbWjCSkFkYfJkEzPoxiYGCcxpgMh+XBtDpUUU6qMTAwjmRUN7S29FZdEQMD4xxGryU5mfXIk+RoLAwDA+MARnnQoRhqqyMXywptGBgYj2W8i1fvrfnA2c1bGBgYWzOqiWs+IpYH7iR8F4puGBgYmzKqIbIaLvONTj4ZBgbGCYxmOT5uIeTpbjP0Y2BgYAQhsjc8kZfVbt7CwMDACIYk8pHTvGmaNBUwMDDOYeSL9QJldaNfLLdhYGA8kFFNR5OtVIctqqs3m5oYGBjPY/wAptVqmIWCrSEAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
